@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reactapp-deployment
+spec:
+  replicas: 3ke
+  selector:
+    matchLabels:
+      app: reactapp
+  template:
+    metadata:
+      labels:
+        app: reactapp
+    spec:
+      containers:
+      - name: reactapp-container
+        image: react-app:v1.0.0
+        ports:
+        - name: http
+          containerPort: 80
+        env:
+        - name: REACT_APP_BASE_API_URL
+          value: http://webapi-service:80/api/
+        #   name: ASPNETCORE_URLS
+        #   value: http://+:80

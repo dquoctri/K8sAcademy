@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-port
+  labels:
+    app: postgres
+spec:
+  selector:
+    app: postgres
+  type: NodePort
+  ports:
+  - name: http
+    port: 80
+    targetPort: 5432
+    protocol: TCPk get 
+    nodePort: 32345

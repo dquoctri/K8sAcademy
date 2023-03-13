@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: reactapp-service
+  labels:
+    app: reactapp
+spec:
+  type: ClusterIP
+  selector:
+    app: reactapp
+  ports:
+    - name: http
+      port: 8181
+      protocol: TCP
+      targetPort: 80
